@@ -8,7 +8,7 @@ of arbitrary model objects which can be viewed and applied in admin',
     author='Stefan Wehrmeyer',
     author_email='Stefan Wehrmeyer <mail@stefanwehrmeyer.com>',
     url='http://github.com/stefanw/django-improvetext',
-    packages = ["improvetext", "lazyinclude.templatetags"],
+    packages = ["improvetext"],
     package_data={'improvetext': ['templates/improvetext/*.html', 'templates/admin/improvetext/*.html']},
     classifiers=[
         'Environment :: Web Environment',

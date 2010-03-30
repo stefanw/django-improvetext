@@ -1,0 +1,7 @@
+{% with obj.get_html_diff as text_diffs %}
+<div style="width:75%">
+<div style="float:left;width:50%">{{ text_diffs.0|safe }}</div>
+<div style="float:right;width:50%">{{ text_diffs.1|safe }}</div>
+<div style="clear:both"></div>
+</div>
+{% endwith %}

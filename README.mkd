@@ -1,0 +1,7 @@
+django-improvetext
+==================
+
+NOTE: this is a custom branch for bundestagger and is not immediately reusable for your project.
+
+Checkout master branch for a generic version, maybe there is already something.
+

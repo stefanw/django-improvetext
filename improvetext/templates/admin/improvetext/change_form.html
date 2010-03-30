@@ -1,0 +1,38 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+{% block extrastyle %}{{ block.super }}
+<style type="text/css" media="screen">
+    del { background-color:#d00;}
+    ins { background-color:#0d0;}
+</style>
+{% endblock %}
+
+{% block object-tools %}
+{{ block.super }}
+<ul class="object-tools">
+    <li>
+        <form action="{% url improvetext-improvement-apply %}" method="post">{% csrf_token %}
+            <input type="hidden" name="improvement_id" value="{{ original.id }}"/>
+            <input type="hidden" name="what" value="{% if original.applied %}revert{% else %}apply{% endif %}"/>
+            <input type="hidden" name="next" value="{{ next }}"/>
+            <input type="submit" value="{% if original.applied %}{% trans "Revert Improvement" %}{% else %}{% trans "Apply Improvement" %}{% endif %}"/>
+    </form>
+    </li>
+    <li>
+        <a href="../../../{{ original.content_type.app_label }}/{{ original.content_type.model }}/{{ original.object_id }}/">{% trans "Edit related Object in Admin" %}</a>
+    </li>
+    <li>
+        <a href="{{ original.content_object.get_absolute_url }}">{% trans "Go to related Object" %}</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block after_related_objects %}
+{% with original.get_html_diff as text_diffs %}
+<div style="width:75%">
+<div style="float:left;width:50%">{{ text_diffs.0|safe }}</div>
+<div style="float:right;width:50%">{{ text_diffs.1|safe }}</div>
+<div style="clear:both"></div>
+</div>
+{% endwith %}
+{% endblock %}

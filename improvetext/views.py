@@ -4,7 +4,8 @@ from django.http import HttpResponse, Http404, HttpResponseBadRequest, HttpRespo
 from django.template import RequestContext
 from django.conf import settings
 
-from bundestagger.account.auth import logged_in, is_post
+from bundestagger.account.auth import logged_in
+from bundestagger.helper.utils import is_post
 
 from models import Improvement
 
